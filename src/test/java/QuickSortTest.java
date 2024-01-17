@@ -7,6 +7,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class QuickSortTest {
+
     @Test
     void quickSort() {
         //given
@@ -14,7 +15,7 @@ class QuickSortTest {
         List<Integer> expectedList = new ArrayList<>(Arrays.asList(-1, 0, 5, 8, 9, 13, 29, 33, 67));
 
         //when
-        List<Integer> sortedList = QuickSort.quickSort(unorderedList);
+        List<Integer> sortedList = QuickSort.quickSortList(unorderedList);
 
         //then
         assertEquals(expectedList, sortedList);

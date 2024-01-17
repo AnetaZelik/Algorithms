@@ -2,17 +2,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class QuickSort {
-    static List<Integer> quickSort(List<Integer> listToBeSorted) {
-        if (listToBeSorted.size() <= 1) {
-            return listToBeSorted;
+    static List<Integer> quickSortList(List<Integer> unsorted) {
+        List<Integer> sorted = new ArrayList<>();
+
+        if (unsorted.size() <= 1) {
+            sorted = unsorted;
         } else {
-            List<Integer> unsorted = new ArrayList<Integer>(listToBeSorted);
+            unsorted = new ArrayList<>(unsorted);
             Integer pivot = unsorted.remove(0);
-            List<Integer> sorted = new ArrayList();
-            List<Integer> lower = new ArrayList();
+            List<Integer> lower = new ArrayList<>();
             List<Integer> greater = new ArrayList<>();
 
-            for (Integer i : listToBeSorted) {
+            for (Integer i : unsorted) {
                 if (i < pivot) {
                     lower.add(i);
                 } else if (i > pivot) {
@@ -22,14 +23,25 @@ public class QuickSort {
                 }
             }
 
-            lower = quickSort(lower);
-            greater = quickSort(greater);
+            lower = quickSortList(lower);
+            greater = quickSortList(greater);
 
             sorted.addAll(lower);
             sorted.add(pivot);
             sorted.addAll(greater);
-
-            return sorted;
         }
+        return sorted;
+    }
+
+    static void quickSortArray(int[] unsorted){
+
+        int pivot = unsorted[unsorted.length-1];
+        int[] smaller;
+        int[] greater;
+        int[] sorted;
+
+//        smaller = quickSortArray(smaller);
+//        greater = quickSortArray(greater);
+
     }
 }
